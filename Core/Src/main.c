@@ -4,7 +4,7 @@
   * @file           : main.c
   * @brief          : Bare Metal Code to Blink built-in led 
   * @author         : Sarthak Chaudhary
-  * @date           : April 12, 2025
+  * @date           : April 19, 2025
   ******************************************************************************
   * @attention
   *
