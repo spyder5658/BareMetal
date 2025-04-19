@@ -53,6 +53,7 @@
 
 #define PIN13              (1U<<13)
 #define LED_PIN             PIN13
+#define LED_OFF             (1U<<29)
 
 
 /* USER CODE END Includes */
@@ -83,10 +84,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    GPIOC->ODR &= ~LED_PIN;                      //led glows
-    // for(int i=0;i<500000;i++);
-    // GPIOC->ODR |= LED_PIN;                    //led turns off
-    // for(int i=0;i<500000;i++);
+
+    /*----------- X-OR way to blink----------*/
+    // GPIOC->ODR ^= LED_PIN;                      //uncomment to 
+    // for(int i=0;i<100000;i++);                  //use the code fo X-OR; think how it does the blinking
+    /*----------- X-OR way to blink----------*/
+
+
+    GPIOC->BSRR = LED_PIN;
+		for(int i=0; i<100000; i++){}
+
+		GPIOC->BSRR = LED_OFF;
+		for(int i=0; i<100000; i++){}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
